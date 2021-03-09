@@ -10,7 +10,7 @@ export class CRUDService {
 
   private baseUrl = 'http://localhost:3000/tasks';
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
   }
 
   getAllTasks(): Observable<any> {
