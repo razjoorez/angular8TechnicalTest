@@ -16,6 +16,13 @@ export class CRUDService {
   getAllTasks(): Observable<any> {
 
     return this.http.get(this.baseUrl);
+  }
 
+  addTask(task: Tasks) {
+      this.http.post(this.baseUrl, task);
+  }
+
+  updateEmployee(id: number, task: any) {
+    return this.http.patch(`${this.baseUrl}/${id}`, task);
   }
 }

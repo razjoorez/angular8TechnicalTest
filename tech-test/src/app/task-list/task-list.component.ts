@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Tasks } from '../model/tasks';
+import { CRUDService } from '../shared/crud.service';
 
 @Component({
   selector: 'app-task-list',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor() { }
+  $tasks: Observable<Tasks[]>;
+  constructor(private crud: CRUDService) {
 
-  ngOnInit() {
   }
-
+  ngOnInit(): void {
+    this.$tasks = this.crud.getAllTasks();
+  }
 }
