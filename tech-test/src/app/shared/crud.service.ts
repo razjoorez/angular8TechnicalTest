@@ -22,7 +22,7 @@ export class CRUDService {
       this.http.post(this.baseUrl, task);
   }
 
-  updateEmployee(id: number, task: any) {
+  updateTask(id: number, task: any) {
     return this.http.patch(`${this.baseUrl}/${id}`, task);
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Tasks } from '../model/tasks';
 import { CRUDService } from '../shared/crud.service';
 
@@ -14,7 +15,8 @@ export class AddComponent implements OnInit {
   max: number;
   maxIndex: number;
   i: number;
-  constructor(private crud: CRUDService) { }
+  constructor(private crud: CRUDService,
+              private router: Router) { }
 
   ngOnInit() {
     this.crud.getAllTasks().subscribe(
@@ -41,6 +43,10 @@ export class AddComponent implements OnInit {
         }
         return this.maxIndex;
     }
+  }
+
+  goto() {
+    this.router.navigate(['/TaskList']);
   }
 
 }
